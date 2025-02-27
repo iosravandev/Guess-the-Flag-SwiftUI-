@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var countries = ["Argentina", "Russia", "Sweden", "Greece", "United States of America", "Canada", "Bangladesh", "Brazil", "United Kingdom", "Germany"].shuffled()
+    @State private var countries = ["Argentina", "Russia", "Sweden", "Greece", "USA", "Canada", "Bangladesh", "Brazil", "United Kingdom", "Germany"].shuffled()
     
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var score = 0
@@ -24,8 +24,11 @@ struct ContentView: View {
                 VStack{
                     Text("Choose a flag for: \(countries[correctAnswer])")
                         .foregroundColor(.black)
-                        .font(.headline)
+                        .font(.system(size: 25))
+                        .fontWeight(.black)
                 }
+                
+                Spacer(minLength: 20)
                 
                 ForEach(0..<3) { number in
                     
@@ -42,6 +45,8 @@ struct ContentView: View {
                     }
                     
                 }
+                
+                Spacer()
                 
                 Text("Total Score: \(score)")
                     .font(.largeTitle)
